@@ -7,3 +7,6 @@ python fully_connected_feed.py --input_data_dir .
 
 dataset
 [Yann LeCun's MNIST page](http://yann.lecun.com/exdb/mnist/)
+
+ref
+http://blog.topspeedsnail.com/archives/10399
