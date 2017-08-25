@@ -8,7 +8,7 @@ $path = $argv[1];
 $file = $path . "/train/啊.png";
 
 // Create the image
-$im = imagecreatetruecolor(40, 40);
+$im = imagecreatetruecolor(60, 60);
 
 // Create some colors
 $white = imagecolorallocate($im, 255, 255, 255);
@@ -20,9 +20,6 @@ imagefilledrectangle($im, 0, 0, 399, 29, $white);
 $text = '啊';
 // Replace path by your own font path
 $font = 'font-type/micro_yahei.ttf';
-
-// Add some shadow to the text
-imagettftext($im, 20, 0, 11, 21, $grey, $font, $text);
 
 // Add the text
 imagettftext($im, 20, 0, 10, 20, $black, $font, $text);
