@@ -38,6 +38,8 @@ $dy = abs($bbox[5] - $bbox[3]);
 $px = abs($width / 2) - abs($dx / 2);
 $py = abs($dy - (abs($height - $dy)) / 2);
 
+$py = $size + ($height - $size) / 2;
+
 // Add the text
 imagettftext($im, $size, $angle, $px, $py, $black, $fontfile, $text);
 
