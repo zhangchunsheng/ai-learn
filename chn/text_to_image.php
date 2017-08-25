@@ -22,7 +22,7 @@ $text = '啊';
 $font = 'font-type/micro_yahei.ttf';
 
 // Add the text
-imagettftext($im, 40, 0, 10, 45, $black, $font, $text);
+imagettftext($im, 40, 0, 10, 50, $black, $font, $text);
 
 // Using imagepng() results in clearer text compared with imagejpeg()
 imagepng($im, $file);
