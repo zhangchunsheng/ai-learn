@@ -5,44 +5,82 @@ if(count($argv) < 2) {
 }
 $path = $argv[1];
 
-$file = $path . "/train/我.png";
+$trainPath = $path . "/train";
+$testPath = $path . "/test";
 
-$width = 60;
-$height = 60;
+$file = fopen("chn_sim.txt", "r");
 
-// Create the image
-$im = imagecreatetruecolor($width, $height);
+$strs = "";
+while (!feof($file)) {
+    $line = fgets($file);
+    if (!empty($line)) {
+        $strs += $line;
+    }
+}
 
-// Create some colors
-$white = imagecolorallocate($im, 255, 255, 255);
-$grey = imagecolorallocate($im, 128, 128, 128);
-$black = imagecolorallocate($im, 0, 0, 0);
+foreach($strs as $str) {
+    drawTrainText($str);
 
-$left = 0;
-$right = 0;
-imagefilledrectangle($im, $left, $right, $width, $height, $white);
+    $random = mt_rand(1, 10);
+    if($random < 2) {
+        drawTestText($str);
+    }
+}
 
-// The text to draw
-$text = '我';
-// Replace path by your own font path
-$font = 'font-type/micro_yahei.ttf';
+fclose($file);
 
-$size = 40;
-$angle = 0;
-$fontfile = $font;
-$bbox = imagettfbbox($size, $angle, $fontfile, $text);
+function drawTrainText($character) {
+    global $trainPath;
 
-$dx = abs($bbox[2] - $bbox[0]);
-$dy = abs($bbox[5] - $bbox[3]);
+    drawText($trainPath, $character);
+}
 
-$px = abs($width / 2) - abs($dx / 2);
-$py = abs($dy - (abs($height - $dy)) / 2);
+function drawTestText($character) {
+    global $testPath;
 
-$py = $size + ($height - $size) / 2;
+    drawText($testPath, $character);
+}
 
-// Add the text
-imagettftext($im, $size, $angle, $px, $py, $black, $fontfile, $text);
+function drawText($path, $character) {
+    $file = $path . "/$character.png";
 
-// Using imagepng() results in clearer text compared with imagejpeg()
-imagepng($im, $file);
-imagedestroy($im);
+    $width = 60;
+    $height = 60;
+
+    // Create the image
+    $im = imagecreatetruecolor($width, $height);
+
+    // Create some colors
+    $white = imagecolorallocate($im, 255, 255, 255);
+    $grey = imagecolorallocate($im, 128, 128, 128);
+    $black = imagecolorallocate($im, 0, 0, 0);
+
+    $left = 0;
+    $right = 0;
+    imagefilledrectangle($im, $left, $right, $width, $height, $white);
+
+    // The text to draw
+    $text = "$character";
+    // Replace path by your own font path
+    $font = 'font-type/micro_yahei.ttf';
+
+    $size = 40;
+    $angle = 0;
+    $fontfile = $font;
+    $bbox = imagettfbbox($size, $angle, $fontfile, $text);
+
+    $dx = abs($bbox[2] - $bbox[0]);
+    $dy = abs($bbox[5] - $bbox[3]);
+
+    $px = abs($width / 2) - abs($dx / 2);
+    $py = abs($dy - (abs($height - $dy)) / 2);
+
+    $py = $size + ($height - $size) / 2;
+
+    // Add the text
+    imagettftext($im, $size, $angle, $px, $py, $black, $fontfile, $text);
+
+    // Using imagepng() results in clearer text compared with imagejpeg()
+    imagepng($im, $file);
+    imagedestroy($im);
+}
