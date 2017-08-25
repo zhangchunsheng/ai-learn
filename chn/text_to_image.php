@@ -33,9 +33,10 @@ $fontfile = $font;
 $bbox = imagettfbbox($size, $angle, $fontfile, $text);
 
 $dx = abs($bbox[2] - $bbox[0]);
+$dy = abs($bbox[5] - $bbox[3]);
 
 $px = abs($width / 2) - abs($dx / 2);
-$py =  abs($bbox[5] - $bbox[3]);
+$py = (abs($height - $dy)) / 2 + $dy;
 
 // Add the text
 imagettftext($im, $size, $angle, $px, $py, $black, $fontfile, $text);
