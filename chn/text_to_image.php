@@ -1,6 +1,6 @@
 <?php
 if(count($argv) < 2) {
-    echo "usage: php text_to_image.php path";
+    echo "usage: php text_to_image.php path\n";
     exit();
 }
 $path = $argv[1];
