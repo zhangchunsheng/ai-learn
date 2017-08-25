@@ -18,6 +18,7 @@ while (!feof($file)) {
     }
 }
 
+$strs = (array) $strs;
 foreach($strs as $str) {
     drawTrainText($str);
 
