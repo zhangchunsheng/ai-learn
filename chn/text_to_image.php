@@ -5,7 +5,7 @@ if(count($argv) < 2) {
 }
 $path = $argv[1];
 
-$file = $path . "/train/啊.png";
+$file = $path . "/train/我.png";
 
 $width = 60;
 $height = 60;
@@ -23,7 +23,7 @@ $right = 0;
 imagefilledrectangle($im, $left, $right, $width, $height, $white);
 
 // The text to draw
-$text = '啊';
+$text = '我';
 // Replace path by your own font path
 $font = 'font-type/micro_yahei.ttf';
 
