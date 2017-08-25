@@ -80,11 +80,11 @@ function drawText($path, $character) {
     if(is_dir($fontPath)) {
         $current_dir = opendir($fontPath);    //opendir()返回一个目录句柄,失败返回false
         while(($file = readdir($current_dir)) !== false) {    //readdir()返回打开目录句柄中的一个条目
-            $sub_dir = $path . DIRECTORY_SEPARATOR . $file;    //构建子目录路径
+            $sub_dir = $fontPath . DIRECTORY_SEPARATOR . $file;    //构建子目录路径
             if($file == '.' || $file == '..') {
                 continue;
             } elseif(substr($file, stripos($file, ".") + 1) == "ttf") {    //如果是目录,进行递归
-                $fonts[] = "$current_dir/" . $file;
+                $fonts[] = "$fontPath/" . $file;
             }
         }
     }
