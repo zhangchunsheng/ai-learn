@@ -84,7 +84,7 @@ function drawText($path, $character) {
             if($file == '.' || $file == '..') {
                 continue;
             } elseif(substr($file, stripos($file, ".") + 1) == "ttf") {    //如果是目录,进行递归
-                $fonts[] = $file;
+                $fonts[] = "$current_dir/" . $file;
             }
         }
     }
