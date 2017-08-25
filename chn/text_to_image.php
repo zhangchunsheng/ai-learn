@@ -18,7 +18,7 @@ while (!feof($file)) {
     }
 }
 
-$strs = (array) $strs;
+$strs = str_split($strs);
 foreach($strs as $str) {
     drawTrainText($str);
 
