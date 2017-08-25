@@ -14,7 +14,7 @@ $strs = "";
 while (!feof($file)) {
     $line = fgets($file);
     if (!empty($line)) {
-        $strs += $line;
+        $strs .= $line;
     }
 }
 
