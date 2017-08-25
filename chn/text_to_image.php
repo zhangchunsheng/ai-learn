@@ -99,7 +99,7 @@ function drawText($path, $character) {
         $im = imagecreatetruecolor($width, $height);
 
         // Create some colors
-        $white = imagecolorallocate($im, 255, 255, 255);
+        $white = imagecolorallocate($im, 253, 253, 253);
         $grey = imagecolorallocate($im, 128, 128, 128);
         $black = imagecolorallocate($im, 0, 0, 0);
 
