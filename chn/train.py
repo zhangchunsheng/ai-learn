@@ -50,7 +50,9 @@ class DataIterator:
 
         random.shuffle(self.image_names);
 
-        self.labels = [file_name.split('/')[-2] for file_name in self.image_names]
+        self.labels = [int(file_name.split('/')[-2]) for file_name in self.image_names]
+        # print self.image_names;
+        print self.labels
 
     @property
     def size(self):
