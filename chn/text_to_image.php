@@ -22,11 +22,11 @@ while (!feof($file)) {
 $strs = str_split_unicode($strs);
 $count = 1;
 foreach($strs as $str) {
-    drawTrainText($count);
+    drawTrainText($str, $count);
 
     $random = mt_rand(1, 10);
     if($random < 2) {
-        drawTestText($count);
+        drawTestText($str, $count);
     }
 
     fwrite($fileDict, "$count:$str\n");
@@ -49,16 +49,16 @@ function str_split_unicode($str, $l = 0) {
     return preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
 }
 
-function drawTrainText($character) {
+function drawTrainText($character, $label) {
     global $trainPath;
 
-    drawText($trainPath, $character);
+    drawText($trainPath, $character, $label);
 }
 
-function drawTestText($character) {
+function drawTestText($character, $label) {
     global $testPath;
 
-    drawText($testPath, $character);
+    drawText($testPath, $character, $label);
 }
 
 function makeDir($path) {
@@ -75,8 +75,8 @@ function makeDir($path) {
     return true;
 }
 
-function drawText($path, $character) {
-    $path = $path . "/$character";
+function drawText($path, $character, $label) {
+    $path = $path . "/$label";
     makeDir($path);
 
     $count = 0;
