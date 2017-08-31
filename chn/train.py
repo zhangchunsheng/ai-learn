@@ -68,7 +68,7 @@ class DataIterator:
 
     def input_pipeline(self, batch_size, num_epochs=None, aug=False):
         images_tensor = tf.convert_to_tensor(self.image_names, dtype=tf.string);
-        labels_tensor = tf.convert_to_tensor(self.labels, dtype=tf.string);
+        labels_tensor = tf.convert_to_tensor(self.labels, dtype=tf.int64);
 
         input_queue = tf.train.slice_input_producer([images_tensor, labels_tensor], num_epochs=num_epochs);
 
@@ -89,7 +89,7 @@ def build_graph(top_k):
     # with tf.device('/cpu:0'):
     keep_prob = tf.placeholder(dtype=tf.float32, shape=[], name='keep_prob')
     images = tf.placeholder(dtype=tf.float32, shape=[None, 60, 60, 1], name='image_batch');
-    labels = tf.placeholder(dtype=tf.string, shape=[None], name='label_batch');
+    labels = tf.placeholder(dtype=tf.int64, shape=[None], name='label_batch');
 
     conv_1 = slim.conv2d(images, 60, [3, 3], 1, padding='SAME', scope='conv1');
     max_pool_1 = slim.max_pool2d(conv_1, [2, 2], [2, 2], padding='SAME');
@@ -102,7 +102,7 @@ def build_graph(top_k):
     fc1 = slim.fully_connected(slim.dropout(flatten, keep_prob), 1024, activation_fn=tf.nn.tanh, scope='fc1');
     logits = slim.fully_connected(slim.dropout(fc1, keep_prob), 3752, activation_fn=None, scope='fc2');
     loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=labels));
-    accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(logits, 1), labels), tf.string));
+    accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(logits, 1), labels), tf.float32));
 
     global_step = tf.get_variable("step", [], initializer=tf.constant_initializer(0.0), trainable=False)
     rate = tf.train.exponential_decay(2e-4, global_step, decay_steps=2000, decay_rate=0.97, staircase=True)
@@ -113,7 +113,7 @@ def build_graph(top_k):
     tf.summary.scalar('accuracy', accuracy);
     merged_summary_op = tf.summary.merge_all()
     predicted_val_top_k, predicted_index_top_k = tf.nn.top_k(probabilities, k=top_k);
-    accuracy_in_top_k = tf.reduce_mean(tf.cast(tf.nn.in_top_k(probabilities, labels, top_k), tf.string));
+    accuracy_in_top_k = tf.reduce_mean(tf.cast(tf.nn.in_top_k(probabilities, labels, top_k), tf.float32));
 
     return {
         'images': images,
