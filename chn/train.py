@@ -292,7 +292,7 @@ def inference(image):
                                               });
         return predict_val, predict_index
 
-def main():
+def main(_):
     print(FLAGS.mode)
     if FLAGS.mode == "train":
         train();
