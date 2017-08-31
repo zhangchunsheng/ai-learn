@@ -52,6 +52,9 @@ class DataIterator:
 
         self.labels = [file_name.split('/')[-2] for file_name in self.image_names]
 
+        print self.image_names
+        print self.labels
+
     @property
     def size(self):
         return len(self.labels)
