@@ -31,7 +31,7 @@ tf.app.flags.DEFINE_boolean('random_contrast', True, "whether to random contrast
 
 tf.app.flags.DEFINE_integer('image_size', 60, "Needs to provide same value as in training.");
 tf.app.flags.DEFINE_boolean('gray', True, "whether to change the rgb to gray");
-tf.app.flags.DEFINE_integer('max_steps', 10000, "the max training steps")
+tf.app.flags.DEFINE_integer('max_steps', 100, "the max training steps")
 tf.app.flags.DEFINE_integer('eval_steps', 6, "the step num to eval")
 tf.app.flags.DEFINE_integer('save_steps', 6, "the steps to save")
 
