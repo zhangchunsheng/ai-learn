@@ -308,7 +308,7 @@ def main(_):
     elif FLAGS.mode == "inference":
         image_path = './data/test/7/000.png'
         final_predict_val, final_predict_index = inference(image_path)
-        logger.info('the result info label {0} predict index {1} predict val {2}' . format("丁", final_predict_index, final_predict_val));
+        logger.info('the result info label {0} predict index {1} predict val {2}' . format("7", final_predict_index, final_predict_val));
 
 if __name__ == "__main__":
     tf.app.run();
