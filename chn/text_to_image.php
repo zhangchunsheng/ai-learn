@@ -9,6 +9,7 @@ $trainPath = $path . "/train";
 $testPath = $path . "/test";
 
 $file = fopen("chn_sim.txt", "r");
+$fileDict = fopen("chn_dict.txt", "w+");
 
 $strs = "";
 while (!feof($file)) {
@@ -19,16 +20,22 @@ while (!feof($file)) {
 }
 
 $strs = str_split_unicode($strs);
+$count = 1;
 foreach($strs as $str) {
-    drawTrainText($str);
+    drawTrainText($count);
 
     $random = mt_rand(1, 10);
     if($random < 2) {
-        drawTestText($str);
+        drawTestText($count);
     }
+
+    fwrite($fileDict, "$count:$str\n");
+
+    $count++;
 }
 
 fclose($file);
+fclose($fileDict);
 
 function str_split_unicode($str, $l = 0) {
     if ($l > 0) {
