@@ -80,7 +80,7 @@ class DataIterator:
             images = self.data_augmentation(images);
 
         new_size = tf.constant([FLAGS.image_size, FLAGS.image_size], dtype=tf.int32);
-        # images = tf.image.resize_images(images, new_size);
+        images = tf.image.resize_images(images, new_size);
         image_batch, label_batch = tf.train.shuffle_batch([images, labels], batch_size=batch_size, capacity=50000, min_after_dequeue=10000);
 
         return image_batch, label_batch
