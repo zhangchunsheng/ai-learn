@@ -31,14 +31,14 @@ tf.app.flags.DEFINE_boolean('random_contrast', True, "whether to random contrast
 
 tf.app.flags.DEFINE_integer('image_size', 60, "Needs to provide same value as in training.");
 tf.app.flags.DEFINE_boolean('gray', True, "whether to change the rgb to gray");
-tf.app.flags.DEFINE_integer('max_steps', 100, "the max training steps")
-tf.app.flags.DEFINE_integer('eval_steps', 6, "the step num to eval")
-tf.app.flags.DEFINE_integer('save_steps', 6, "the steps to save")
+tf.app.flags.DEFINE_integer('max_steps', 1000, "the max training steps")
+tf.app.flags.DEFINE_integer('eval_steps', 50, "the step num to eval")
+tf.app.flags.DEFINE_integer('save_steps', 100, "the steps to save")
 
 tf.app.flags.DEFINE_boolean('restore', False, 'whether to restore from checkpoint');
 tf.app.flags.DEFINE_boolean('epoch', 1, 'Number of epoches');
 tf.app.flags.DEFINE_boolean('batch_size', 10, 'Validation batch size');
-tf.app.flags.DEFINE_string('mode', 'inference', 'Running mode. One of {"train", "validation", "inference"}')
+tf.app.flags.DEFINE_string('mode', 'train', 'Running mode. One of {"train", "validation", "inference"}')
 
 FLAGS = tf.app.flags.FLAGS;
 
