@@ -217,11 +217,11 @@ def validation():
     groundtruth = [];
 
     with tf.Session() as sess:
-        test_images, test_labels = test_feeder.input_pipeline(batch_size=FLAGS.batch_size, num_epochs=1)
+        test_images, test_labels = test_feeder.input_pipeline(batch_size=FLAGS.batch_size)
         graph = build_graph(3)
 
         sess.run(tf.global_variables_initializer());
-        #sess.run(tf.local_variables_initializer());
+        sess.run(tf.local_variables_initializer());
 
         coord = tf.train.Coordinator();
         threads = tf.train.start_queue_runners(sess=sess, coord=coord)
