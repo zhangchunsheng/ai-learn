@@ -38,7 +38,7 @@ tf.app.flags.DEFINE_integer('save_steps', 1000, "the steps to save")
 tf.app.flags.DEFINE_boolean('restore', False, 'whether to restore from checkpoint');
 tf.app.flags.DEFINE_boolean('epoch', 1, 'Number of epoches');
 tf.app.flags.DEFINE_boolean('batch_size', 10, 'Validation batch size');
-tf.app.flags.DEFINE_string('mode', 'train', 'Running mode. One of {"train", "validation", "inference"}')
+tf.app.flags.DEFINE_string('mode', 'inference', 'Running mode. One of {"train", "validation", "inference"}')
 
 FLAGS = tf.app.flags.FLAGS;
 
