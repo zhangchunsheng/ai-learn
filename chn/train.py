@@ -221,7 +221,7 @@ def validation():
         graph = build_graph(3)
 
         sess.run(tf.global_variables_initializer());
-        sess.run(tf.local_variables_initializer());
+        #sess.run(tf.local_variables_initializer());
 
         coord = tf.train.Coordinator();
         threads = tf.train.start_queue_runners(sess=sess, coord=coord)
