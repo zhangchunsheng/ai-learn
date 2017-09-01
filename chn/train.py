@@ -38,7 +38,7 @@ tf.app.flags.DEFINE_integer('save_steps', 100, "the steps to save")
 tf.app.flags.DEFINE_boolean('restore', False, 'whether to restore from checkpoint');
 tf.app.flags.DEFINE_boolean('epoch', 1, 'Number of epoches');
 tf.app.flags.DEFINE_boolean('batch_size', 10, 'Validation batch size');
-tf.app.flags.DEFINE_string('mode', 'validation', 'Running mode. One of {"train", "validation", "inference"}')
+tf.app.flags.DEFINE_string('mode', 'train', 'Running mode. One of {"train", "validation", "inference"}')
 
 FLAGS = tf.app.flags.FLAGS;
 
@@ -139,7 +139,7 @@ def train():
     test_feeder = DataIterator(data_dir='./data/test/');
 
     with tf.Session() as sess:
-        train_images, train_labels = train_feeder.input_pipeline(batch_size=FLAGS.batch_size, aug=False)
+        train_images, train_labels = train_feeder.input_pipeline(batch_size=FLAGS.batch_size, aug=True)
         test_images, test_labels = test_feeder.input_pipeline(batch_size=FLAGS.batch_size)
 
         graph = build_graph(top_k=1)
