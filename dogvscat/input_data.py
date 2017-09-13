@@ -27,6 +27,11 @@ def get_files(file_dir):
     temp = temp.transpose()
     np.random.shuffle(temp);
 
+    image_list = list(temp[:, 0]);
+    label_list = list(temp[:, 1]);
+    label_list = [int(i) for i in label_list]
+
     return image_list, label_list
 
-get_files("./data/train")
+# get_files("./data/train")
+
