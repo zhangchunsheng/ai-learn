@@ -8,7 +8,7 @@ N_CLASSES = 2
 IMG_W = 200
 IMG_H = 200
 BATCH_SIZE = 16
-CAPACITY = 100
+CAPACITY = 10
 MAX_STEP = 15000 # with current parameters, it is suggested to use MAX_STEP>10k
 learning_rate = 0.0001 # with current parameters, it is suggested to use learning rate<0.0001
 
