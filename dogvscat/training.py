@@ -5,8 +5,8 @@ import input_data
 import model
 
 N_CLASSES = 2
-IMG_W = 200
-IMG_H = 200
+IMG_W = 30
+IMG_H = 30
 BATCH_SIZE = 16
 CAPACITY = 2000
 MAX_STEP = 15000 # with current parameters, it is suggested to use MAX_STEP>10k
