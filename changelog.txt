@@ -4,6 +4,9 @@
 [tensor-learn_1.0.0.1 2017-08-31 张春生]
 1.新功能:新增中文识别
 
+[tensor-learn_1.0.0.1 2017-09-13 张春生]
+1.新功能:新增cats and dogs classifier
+
 --备注分类
 1、新功能：
 2、Bug:
