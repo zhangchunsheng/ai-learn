@@ -77,8 +77,7 @@ def get_one_image(train):
     ind = np.random.randint(0, n)
     img_dir = train[ind]
 
-    #image = Image.open(dir)
-    image = Image.open(open(dir, 'rb'))
+    image = Image.open(dir)
     #plt.imshow(image)
     plt.imsave("/mnt/ai/git/ai-image-detection/data/test.png", image);
     image = image.resize([200, 200])
