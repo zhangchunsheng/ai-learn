@@ -12,10 +12,10 @@ def get_files(file_dir):
         for file in os.listdir(file_dir + "/" + dir):
             name = file.split('.');
             if name[0] == 'cat':
-                cats.append(file_dir + file);
+                cats.append(file_dir + "/" + dir + "/" + file);
                 label_cats.append(0);
             else:
-                dogs.append(file_dir + file);
+                dogs.append(file_dir + "/" + dir + "/" + file);
                 label_dogs.append(1);
 
     print("There are %d cats\nThere are %d dogs" % (len(cats), len(dogs)));
