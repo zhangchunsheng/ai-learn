@@ -75,7 +75,7 @@ with tf.Session() as sess:
         while not coord.should_stop() and i < 1:
             img, label = sess.run([image_batch, label_batch])
 
-            for j, in np.arange(BATCH_SIZE):
+            for j in np.arange(BATCH_SIZE):
                 print("label: %d" % label[j])
                 plt.imshow(img[j, :, :, :]);
                 plt.show()
