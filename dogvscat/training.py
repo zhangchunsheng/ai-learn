@@ -87,7 +87,7 @@ def get_one_image(train):
 def evaluate_one_image():
     train_dir = "./data/train"
     train, train_label = input_data.get_files(train_dir)
-    image_array = get_one_image(train)
+    image_array = get_one_image(train_dir)
 
     with tf.Graph().as_default():
         BATCH_SIZE = 1
