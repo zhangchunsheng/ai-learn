@@ -77,8 +77,9 @@ with tf.Session() as sess:
 
             for j in np.arange(BATCH_SIZE):
                 print("label: %d" % label[j])
-                plt.imshow(img[j, :, :, :]);
-                plt.show()
+                #plt.imshow(img[j, :, :, :]);
+                #plt.show()
+                plt.imsave("/mnt/ai/git/chn_handwriting/data/test.png", img[j, :, :, :]);
             i += 1;
     except tf.errors.OutOfRangeError:
         print("done!");
