@@ -48,7 +48,7 @@ def get_batch(image, label, image_W, image_H, batch_size, capacity):
 
     #image = tf.image.resize_image_with_crop_or_pad(image, image_H, image_W)
     image = tf.image.resize_images(image, [image_H, image_W], method=tf.image.ResizeMethod.NEAREST_NEIGHBOR);
-    #image = tf.cast(image, tf.float32)
+    image = tf.cast(image, tf.float32)
     #image = tf.image.per_image_standardization(image)
     image_batch, label_batch = tf.train.batch([image, label], batch_size=batch_size, num_threads=64, capacity=capacity);
 
