@@ -28,3 +28,5 @@ def get_files(file_dir):
     np.random.shuffle(temp);
 
     return image_list, label_list
+
+get_files("./data/train")
