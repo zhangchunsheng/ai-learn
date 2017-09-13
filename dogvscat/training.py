@@ -60,3 +60,5 @@ def run_training():
 
     coord.join(threads)
     sess.close()
+
+run_training();
