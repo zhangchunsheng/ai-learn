@@ -32,7 +32,7 @@ foreach($strs as $str) {
     fwrite($fileDict, "$count:$str\n");
 
     if($count == 10) {
-        break;
+        //break;
     }
 
     $count++;
