@@ -75,7 +75,7 @@ def get_one_image(train):
     '''
     n = len(train)
     ind = np.random.randint(0, n)
-    img_dir = train(ind)
+    img_dir = train[ind]
 
     image = Image.open(dir)
     #plt.imshow(image)
@@ -85,9 +85,9 @@ def get_one_image(train):
     return image
 
 def evaluate_one_image():
-    train_dir = "./data/train"
+    train_dir = "./data/train/"
     train, train_label = input_data.get_files(train_dir)
-    image_array = get_one_image(train_dir)
+    image_array = get_one_image(train)
 
     with tf.Graph().as_default():
         BATCH_SIZE = 1
