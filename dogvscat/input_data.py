@@ -56,6 +56,7 @@ def get_batch(image, label, image_W, image_H, batch_size, capacity):
 
     return image_batch, label_batch;
 
+'''
 import matplotlib.pyplot as plt;
 
 BATCH_SIZE = 2;
@@ -87,3 +88,4 @@ with tf.Session() as sess:
         coord.request_stop()
 
     coord.join(threads)
+'''
