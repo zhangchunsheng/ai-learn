@@ -9,8 +9,8 @@ def get_files(file_dir):
     label_dogs = [];
 
     for dir in os.listdir(file_dir):
-        for file in os.listdir(dir):
-            name = file.split(sep = '.');
+        for file in os.listdir(file_dir + "/" + dir):
+            name = file.split('.');
             if name[0] == 'cat':
                 cats.append(file_dir + file);
                 label_cats.append(0);
