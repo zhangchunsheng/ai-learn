@@ -98,7 +98,7 @@ def evaluate_one_image():
         logit = model.inference(image, BATCH_SIZE, N_CLASSES)
         logit = tf.nn.softmax(logit)
 
-        x = tf.placeholder(tf.float32, shape=[200, 200, 3])
+        x = tf.placeholder(tf.float32, shape=[30, 30, 3])
         logs_train_dir = "./logs";
         saver = tf.train.Saver()
 
