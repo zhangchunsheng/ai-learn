@@ -94,7 +94,7 @@ def evaluate_one_image():
         N_CLASSES = 2
 
         image = tf.cast(image_array, tf.float32)
-        image = tf.reshape(image, [1, 200, 200, 3])
+        image = tf.reshape(image, [1, 30, 30, 3])
         logit = model.inference(image, BATCH_SIZE, N_CLASSES)
         logit = tf.nn.softmax(logit)
 
