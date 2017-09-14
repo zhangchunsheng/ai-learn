@@ -80,7 +80,7 @@ def get_one_image(train):
     image = Image.open(img_dir)
     #plt.imshow(image)
     plt.imsave("/mnt/ai/git/ai-image-detection/data/test.png", image);
-    image = image.resize([200, 200])
+    image = image.resize([30, 30])
     image = np.array(image)
     return image
 
