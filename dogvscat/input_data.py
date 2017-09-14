@@ -81,7 +81,7 @@ with tf.Session() as sess:
                 print("label: %d" % label[j])
                 #plt.imshow(img[j, :, :, :]);
                 #plt.show()
-                plt.imsave("/mnt/ai/git/ai-image-detection/data/test.png", img[j, :, :, :]);
+                plt.imsave("./data/test/test.png", img[j, :, :, :]);
             i += 1;
     except tf.errors.OutOfRangeError:
         print("done!");
