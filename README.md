@@ -12,4 +12,4 @@ ref
 http://blog.topspeedsnail.com/archives/10399
 
 my data
-http://chn-recognition.luomor.com/data/train/
+https://chn-recognition.luomor.com/data/train/
