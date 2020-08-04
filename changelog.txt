@@ -7,6 +7,9 @@
 [tensor-learn_1.0.0.1 2017-09-13 张春生]
 1.新功能:新增cats and dogs classifier
 
+[ai-learn_1.0.0.1 2020-08-04 张春生]
+1.新功能:update project
+
 --备注分类
 1、新功能：
 2、Bug:
