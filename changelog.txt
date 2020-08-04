@@ -9,6 +9,7 @@
 
 [ai-learn_1.0.0.1 2020-08-04 张春生]
 1.新功能:update project
+2.新功能:learn pytorch
 
 --备注分类
 1、新功能：
