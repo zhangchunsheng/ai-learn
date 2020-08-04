@@ -1,4 +1,7 @@
 # ai-learn
+
+learn tensorflow, pytorch, etc.
+
 ## 2017
 ```
 learn tensorflow
