@@ -108,3 +108,20 @@ for epoch in range(2):  # loop over the dataset multiple times
             running_loss = 0.0
 
 print('Finished Training')
+
+'''
+truck truck truck horse
+[1,  2000] loss: 2.192
+[1,  4000] loss: 1.883
+[1,  6000] loss: 1.688
+[1,  8000] loss: 1.571
+[1, 10000] loss: 1.492
+[1, 12000] loss: 1.455
+[2,  2000] loss: 1.389
+[2,  4000] loss: 1.361
+[2,  6000] loss: 1.326
+[2,  8000] loss: 1.309
+[2, 10000] loss: 1.290
+[2, 12000] loss: 1.288
+Finished Training
+'''
