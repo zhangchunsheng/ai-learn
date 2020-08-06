@@ -45,3 +45,20 @@ Net(
   (fc3): Linear(in_features=84, out_features=10, bias=True)
 )
 '''
+
+params = list(net.parameters())
+print(len(params))
+print(params[0].size())  # conv1's .weight
+'''
+10
+torch.Size([6, 1, 3, 3])
+'''
+
+input = torch.randn(1, 1, 32, 32)
+out = net(input)
+print(out)
+
+'''
+tensor([[-0.0847,  0.0084, -0.0927,  0.0841, -0.0374,  0.0329,  0.0043,  0.0249,
+         -0.1821, -0.0299]], grad_fn=<AddmmBackward>)
+'''
