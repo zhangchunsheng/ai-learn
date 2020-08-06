@@ -128,3 +128,7 @@ Finished Training
 
 PATH = './cifar_net.pth'
 torch.save(net.state_dict(), PATH)
+'''
+https://pytorch.org/docs/stable/notes/serialization.html
+cifar_net.pth
+'''
