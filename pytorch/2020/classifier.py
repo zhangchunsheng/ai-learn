@@ -139,6 +139,9 @@ images, labels = dataiter.next()
 # print images
 imshow(torchvision.utils.make_grid(images))
 print('GroundTruth: ', ' '.join('%5s' % classes[labels[j]] for j in range(4)))
+'''
+GroundTruth:    cat  ship  ship plane
+'''
 
 net = Net()
 net.load_state_dict(torch.load(PATH))
@@ -149,7 +152,9 @@ _, predicted = torch.max(outputs, 1)
 
 print('Predicted: ', ' '.join('%5s' % classes[predicted[j]]
                               for j in range(4)))
-
+'''
+Predicted:    cat  ship  ship  ship
+'''
 
 correct = 0
 total = 0
@@ -163,7 +168,9 @@ with torch.no_grad():
 
 print('Accuracy of the network on the 10000 test images: %d %%' % (
     100 * correct / total))
-
+'''
+Accuracy of the network on the 10000 test images: 56 %
+'''
 
 class_correct = list(0. for i in range(10))
 class_total = list(0. for i in range(10))
@@ -182,7 +189,18 @@ with torch.no_grad():
 for i in range(10):
     print('Accuracy of %5s : %2d %%' % (
         classes[i], 100 * class_correct[i] / class_total[i]))
-
+'''
+Accuracy of plane : 58 %
+Accuracy of   car : 74 %
+Accuracy of  bird : 38 %
+Accuracy of   cat : 50 %
+Accuracy of  deer : 43 %
+Accuracy of   dog : 41 %
+Accuracy of  frog : 68 %
+Accuracy of horse : 68 %
+Accuracy of  ship : 71 %
+Accuracy of truck : 56 %
+'''
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
