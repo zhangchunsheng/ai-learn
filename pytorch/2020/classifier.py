@@ -21,4 +21,6 @@ classes = ('plane', 'car', 'bird', 'cat',
 
 '''
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
+Extracting ./data/cifar-10-python.tar.gz to ./data
+Files already downloaded and verified
 '''
