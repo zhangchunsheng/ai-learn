@@ -43,3 +43,22 @@ False
 True
 <SumBackward0 object at 0x7fdcd798a8d0>
 '''
+
+out.backward()
+print(x.grad)
+'''
+tensor([[4.5000, 4.5000],
+        [4.5000, 4.5000]])
+'''
+
+x = torch.randn(3, requires_grad=True)
+
+y = x * 2
+while y.data.norm() < 1000:
+    y = y * 2
+
+print(y)
+
+'''
+tensor([-1520.5913,   492.3205,  -107.1850], grad_fn=<MulBackward0>)
+'''
