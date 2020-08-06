@@ -1,5 +1,6 @@
 import torch
 
+# https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html#sphx-glr-beginner-blitz-autograd-tutorial-py
 x = torch.ones(2, 2, requires_grad=True)
 print(x)
 
