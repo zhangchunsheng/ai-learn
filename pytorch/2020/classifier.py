@@ -125,3 +125,6 @@ truck truck truck horse
 [2, 12000] loss: 1.288
 Finished Training
 '''
+
+PATH = './cifar_net.pth'
+torch.save(net.state_dict(), PATH)
