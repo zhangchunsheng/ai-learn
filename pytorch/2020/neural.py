@@ -90,3 +90,19 @@ print(loss.grad_fn.next_functions[0][0].next_functions[0][0])  # ReLU
 <AddmmBackward object at 0x7f500fee0080>
 <AccumulateGrad object at 0x7f500fee0080>
 '''
+
+net.zero_grad()     # zeroes the gradient buffers of all parameters
+
+print('conv1.bias.grad before backward')
+print(net.conv1.bias.grad)
+
+loss.backward()
+
+print('conv1.bias.grad after backward')
+print(net.conv1.bias.grad)
+'''
+conv1.bias.grad before backward
+tensor([0., 0., 0., 0., 0., 0.])
+conv1.bias.grad after backward
+tensor([ 0.0082, -0.0131,  0.0090,  0.0026,  0.0077, -0.0147])
+'''
