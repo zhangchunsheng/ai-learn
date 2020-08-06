@@ -62,3 +62,33 @@ print(y)
 '''
 tensor([-1520.5913,   492.3205,  -107.1850], grad_fn=<MulBackward0>)
 '''
+
+v = torch.tensor([0.1, 1.0, 0.0001], dtype=torch.float)
+y.backward(v)
+
+print(x.grad)
+
+'''
+tensor([1.0240e+02, 1.0240e+03, 1.0240e-01])
+'''
+
+print(x.requires_grad)
+print((x ** 2).requires_grad)
+
+with torch.no_grad():
+    print((x ** 2).requires_grad)
+'''
+True
+True
+False
+'''
+
+print(x.requires_grad)
+y = x.detach()
+print(y.requires_grad)
+print(x.eq(y).all())
+'''
+True
+False
+tensor(True)
+'''
