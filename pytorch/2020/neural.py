@@ -62,3 +62,22 @@ print(out)
 tensor([[-0.0847,  0.0084, -0.0927,  0.0841, -0.0374,  0.0329,  0.0043,  0.0249,
          -0.1821, -0.0299]], grad_fn=<AddmmBackward>)
 '''
+
+net.zero_grad()
+out.backward(torch.randn(1, 10))
+
+output = net(input)
+target = torch.randn(10)  # a dummy target, for example
+target = target.view(1, -1)  # make it the same shape as output
+criterion = nn.MSELoss()
+
+loss = criterion(output, target)
+print(loss)
+'''
+tensor(2.6959, grad_fn=<MseLossBackward>)
+
+input -> conv2d -> relu -> maxpool2d -> conv2d -> relu -> maxpool2d
+      -> view -> linear -> relu -> linear -> relu -> linear
+      -> MSELoss
+      -> loss
+'''
