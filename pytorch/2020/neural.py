@@ -106,3 +106,20 @@ tensor([0., 0., 0., 0., 0., 0.])
 conv1.bias.grad after backward
 tensor([ 0.0082, -0.0131,  0.0090,  0.0026,  0.0077, -0.0147])
 '''
+
+learning_rate = 0.01
+for f in net.parameters():
+    f.data.sub_(f.grad.data * learning_rate)
+
+
+import torch.optim as optim
+
+# create your optimizer
+optimizer = optim.SGD(net.parameters(), lr=0.01)
+
+# in your training loop:
+optimizer.zero_grad()   # zero the gradient buffers
+output = net(input)
+loss = criterion(output, target)
+loss.backward()
+optimizer.step()    # Does the update
