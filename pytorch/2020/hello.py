@@ -37,3 +37,9 @@ a.requires_grad_(True)
 print(a.requires_grad)
 b = (a * a).sum()
 print(b.grad_fn)
+
+'''
+False
+True
+<SumBackward0 object at 0x7fdcd798a8d0>
+'''
