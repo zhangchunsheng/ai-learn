@@ -81,3 +81,12 @@ input -> conv2d -> relu -> maxpool2d -> conv2d -> relu -> maxpool2d
       -> MSELoss
       -> loss
 '''
+
+print(loss.grad_fn)  # MSELoss
+print(loss.grad_fn.next_functions[0][0])  # Linear
+print(loss.grad_fn.next_functions[0][0].next_functions[0][0])  # ReLU
+'''
+<MseLossBackward object at 0x7f500fee00b8>
+<AddmmBackward object at 0x7f500fee0080>
+<AccumulateGrad object at 0x7f500fee0080>
+'''
