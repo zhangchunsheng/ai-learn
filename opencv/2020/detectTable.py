@@ -1,6 +1,7 @@
 #coding:utf-8
 '''
 表格生成线条坐标
+https://answers.opencv.org/question/63847/how-to-extract-tables-from-an-image/
 '''
 import cv2
 import numpy as np
