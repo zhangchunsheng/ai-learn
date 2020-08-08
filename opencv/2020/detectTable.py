@@ -115,14 +115,14 @@ class detectTable(object):
         v_dilate_img = cv2.dilate(v_erode_img, v_structure, 1)
 
         mask_img = h_dilate_img+v_dilate_img
-        joints_img = cv2.bitwise_and(h_dilate_img,v_dilate_img)
-        cv2.imshow("joints",joints_img)
-        cv2.imshow("mask",mask_img)
+        joints_img = cv2.bitwise_and(h_dilate_img, v_dilate_img)
+        cv2.imshow("joints", joints_img)
+        cv2.imshow("mask", mask_img)
 
         return mask_img,joints_img
 
-            # 将生成的json数据显示在图像上
-def drawLine(all_lines,height=841,width=595):
+# 将生成的json数据显示在图像上
+def drawLine(all_lines, height=841, width=595):
     blank_image = np.zeros((height, width, 3), np.int8)
     color = tuple(reversed((0,0,0)))
     blank_image[:] = color
@@ -150,7 +150,7 @@ def drawLine(all_lines,height=841,width=595):
     cv2.waitKey()
 
 if __name__=='__main__':
-    img = cv2.imread('p27.png')
-    cv2.imshow("img",img)
+    img = cv2.imread('00025140840001-1.jpg')
+    cv2.imshow("img", img)
     mask,joint = detectTable(img).run()
     cv2.waitKey()
